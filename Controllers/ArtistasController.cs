@@ -42,6 +42,20 @@ namespace ArtistasPraiaGrandeAPI.Controllers
             return artista;
         }
 
+
+
+        // GET: api/Artistas/ObterPorNome
+        [HttpGet("ObterPorNome")]
+        public IActionResult ObterPorNome(string nomeCompleto)
+        {
+            var artistas = _context.Artistas.Where(x => x.NomeCompleto.Contains(nomeCompleto));
+
+            return Ok(artistas);
+        }
+
+
+
+
         // PUT: api/Artistas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
